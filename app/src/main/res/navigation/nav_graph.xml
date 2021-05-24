@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startingPageFragment">
+
+    <fragment
+        android:id="@+id/startingPageFragment"
+        android:name="com.lla.panicbutton.ui.fragments.StartingPageFragment"
+        android:label="StartingPageFragment" >
+        <action
+            android:id="@+id/action_startingPageFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.lla.panicbutton.ui.fragments.WelcomeFragment"
+        android:label="WelcomeFragment" />
+</navigation>
