@@ -13,7 +13,7 @@ interface RecordingDAO {
     suspend fun deleteRecording(recording: Recording)
 
     @Query("SELECT * FROM recording_table ORDER BY dateAdded DESC")
-    fun getAllRecordingsSortedByDataAdded(): LiveData<List<Recording>>
+    fun getAllRecordingsSortedByDateAdded(): LiveData<List<Recording>>
 
     @Query("SELECT * FROM recording_table ORDER BY audioTitle")
     fun getAllRecordingsSortedByAudioTitle(): LiveData<List<Recording>>
