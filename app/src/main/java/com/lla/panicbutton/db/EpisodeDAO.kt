@@ -13,7 +13,7 @@ interface EpisodeDAO {
     suspend fun deleteEpisode(recording: Episode)
 
     @Query("SELECT * FROM episode_table ORDER BY dateAdded DESC")
-    fun getAllEpisodesSortedByDataAdded(): LiveData<List<Episode>>
+    fun getAllEpisodesSortedByDateAdded(): LiveData<List<Episode>>
 
     @Query("SELECT * FROM episode_table ORDER BY timeInMillis DESC")
     fun getAllEpisodesSortedByTimeInMillis(): LiveData<List<Episode>>

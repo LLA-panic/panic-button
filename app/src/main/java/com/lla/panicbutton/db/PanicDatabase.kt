@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
     entities = [Recording::class, Episode::class],
     version = 1
 )
-abstract class Database : RoomDatabase() {
+abstract class PanicDatabase : RoomDatabase() {
 
     abstract fun getEpisodeDao(): EpisodeDAO
     abstract fun getRecodingDao(): RecordingDAO
