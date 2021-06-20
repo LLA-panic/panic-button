@@ -19,6 +19,6 @@ class MainRepository @Inject constructor(
     suspend fun deleteEpisode(episode: Episode) = episodeDao.deleteEpisode(episode)
     fun getAllEpisodesSortedByDataAdded() = episodeDao.getAllEpisodesSortedByDateAdded()
     fun getAllEpisodesSortedByTimeInMillis() =  episodeDao.getAllEpisodesSortedByTimeInMillis()
-    fun getTotalTimeInMillis() = episodeDao.getTotalTimeInMillis()
+    fun getTotalEpisodesTimeInMillis() = episodeDao.getTotalTimeInMillis()
 
 }
