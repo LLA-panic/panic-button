@@ -21,5 +21,5 @@ interface EpisodeDAO {
     @Query("SELECT SUM(timeInMillis) FROM episode_table")
     fun getTotalTimeInMillis(): LiveData<Long>
 
-    //getPastMonthTimeInMillis and getPastWeekTimeInMillis?
+    //TODO: getPastMonthTimeInMillis and getPastWeekTimeInMillis for stats?
 }

@@ -15,5 +15,56 @@
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.lla.panicbutton.ui.fragments.WelcomeFragment"
-        android:label="WelcomeFragment" />
+        android:label="WelcomeFragment" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_setupFragment"
+            app:destination="@id/setupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recordingsFragment"
+        android:name="com.lla.panicbutton.ui.fragments.RecordingsFragment"
+        android:label="RecordingsFragment" />
+    <fragment
+        android:id="@+id/setupFragment"
+        android:name="com.lla.panicbutton.ui.fragments.SetupFragment"
+        android:label="SetupFragment" >
+        <action
+            android:id="@+id/action_setupFragment_to_panicButtonFragment"
+            app:destination="@id/panicButtonFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/statisticsFragment"
+        android:name="com.lla.panicbutton.ui.fragments.StatisticsFragment"
+        android:label="StatisticsFragment" />
+    <fragment
+        android:id="@+id/panicButtonFragment"
+        android:name="com.lla.panicbutton.ui.fragments.PanicButtonFragment"
+        android:label="PanicButtonFragment" >
+        <action
+            android:id="@+id/action_panicButtonFragment_to_activatedPanicFragment"
+            app:destination="@id/activatedPanicFragment" />
+        <action
+            android:id="@+id/action_panicButtonFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/quotesFragment"
+        android:name="com.lla.panicbutton.ui.fragments.QuotesFragment"
+        android:label="QuotesFragment" />
+    <fragment
+        android:id="@+id/activatedPanicFragment"
+        android:name="com.lla.panicbutton.ui.fragments.ActivatedPanicFragment"
+        android:label="ActivatedPanicFragment" >
+        <action
+            android:id="@+id/action_activatedPanicFragment_to_panicButtonFragment"
+            app:destination="@id/panicButtonFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.lla.panicbutton.ui.fragments.SettingsFragment"
+        android:label="SettingsFragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_panicButtonFragment"
+            app:destination="@id/panicButtonFragment" />
+    </fragment>
 </navigation>
