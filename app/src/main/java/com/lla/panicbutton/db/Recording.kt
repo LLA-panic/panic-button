@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "recording_table")
 data class Recording(
     var audioTitle: String,
+    var timeInMillis: Long = 0L,
     var dateAdded: Long = 0L
 ) {
     @PrimaryKey(autoGenerate = true)

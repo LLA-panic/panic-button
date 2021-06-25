@@ -15,5 +15,8 @@ class PanicButtonFragment : Fragment(R.layout.fragment_panic_button) {
         panicButton.setOnClickListener {
             findNavController().navigate(R.id.action_panicButtonFragment_to_activatedPanicFragment)
         }
+        settingsButton.setOnClickListener {
+            findNavController().navigate(R.id.action_panicButtonFragment_to_settingsFragment)
+        }
     }
 }

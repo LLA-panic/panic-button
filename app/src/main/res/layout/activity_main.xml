@@ -18,14 +18,13 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="#00FFFFFF"
-        app:backgroundTint="#00FFFFFF"
+        android:background="#00FFD6D6"
+        app:elevation="0dp"
         app:itemHorizontalTranslationEnabled="true"
         app:itemIconTint="@color/colorAccent"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu" />
 

@@ -14,6 +14,7 @@ class MainRepository @Inject constructor(
     suspend fun deleteRecording(recording: Recording) = recordingDAO.deleteRecording(recording)
     fun getAllRecordingsSortedByDateAdded() = recordingDAO.getAllRecordingsSortedByDateAdded()
     fun getAllRecordingsSortedByAudioTitle() = recordingDAO.getAllRecordingsSortedByAudioTitle()
+    fun getAllRecordingsSortedByTimeInMillis() = recordingDAO.getAllRecordingsSortedByTimeInMillis()
 
     suspend fun insertEpisode(episode: Episode) = episodeDao.insertEpisode(episode)
     suspend fun deleteEpisode(episode: Episode) = episodeDao.deleteEpisode(episode)
