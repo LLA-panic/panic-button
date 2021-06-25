@@ -1,10 +1,55 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="RecordingButton" parent="dropShadow">
+        <item name="android:textColor">#383838</item>
+        <item name="android:layout_width">200dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:backgroundTint">#FFFFFF</item>
+        <item name="android:fontFamily">@font/nunito</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="nextButton" parent="dropShadow">
+        <item name="android:textColor">#5A5A5A</item>
+        <item name="android:backgroundTint">#FFFFFF</item>
+    </style>
+
+    <style name="actionButton" parent="dropShadow">
+        <item name="android:textColor">#383838</item>
+        <item name="android:layout_width">105dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:backgroundTint">#FFFFFF</item>
+        <item name="android:fontFamily">@font/nunito</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textSize">19sp</item>
+    </style>
+
+    <style name="dropShadow">
+        <item name="android:outlineAmbientShadowColor">#FF7878</item>
+        <item name="android:outlineSpotShadowColor">#FF7878</item>
+        <item name="android:translationZ">50dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Widget.App.Button.OutlinedButton.IconOnly" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="iconPadding">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:src">@drawable/next</item>
     </style>
 
 </resources>

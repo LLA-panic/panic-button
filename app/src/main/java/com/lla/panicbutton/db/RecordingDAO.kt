@@ -17,4 +17,7 @@ interface RecordingDAO {
 
     @Query("SELECT * FROM recording_table ORDER BY audioTitle")
     fun getAllRecordingsSortedByAudioTitle(): LiveData<List<Recording>>
+
+    @Query("SELECT * FROM recording_table ORDER BY timeInMillis DESC")
+    fun getAllRecordingsSortedByTimeInMillis(): LiveData<List<Recording>>
 }

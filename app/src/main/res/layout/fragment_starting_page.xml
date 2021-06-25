@@ -1,40 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/starting_gradient">
+
+    <TextView
+        android:id="@+id/backgroundText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="georgia"
+        android:lineSpacingExtra="10dp"
+        android:text="@string/lorem_ipsum"
+        android:textAlignment="center"
+        android:textColor="#14000000"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="georgia"
-        android:text="panic button"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="183dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="150dp"
+        android:background="#FFF5F5"
+        android:fontFamily="@font/stylish"
+        android:letterSpacing="0.10"
+        android:text="panic"
+        android:textAlignment="center"
+        android:textColor="#878787"
+        android:textSize="39sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.294" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/getStartedButton"
-        style="@style/Widget.AppCompat.Button"
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
+        android:layout_marginTop="190dp"
+        android:fontFamily="@font/stylish"
+        android:letterSpacing="0.30"
+        android:text="button"
+        android:textColor="#FFC0C0"
+        android:textSize="38sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/getStartedButton"
+        style="@style/RecordingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="110dp"
         android:fontFamily="georgia"
-        android:padding="22dp"
+        android:padding="25dp"
         android:text="get started"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#555555"
-        android:textSize="30dp"
+        android:textSize="25sp"
+        app:cornerRadius="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.654" />
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
