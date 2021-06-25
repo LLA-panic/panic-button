@@ -43,7 +43,6 @@
         app:cornerRadius="18dp"
         app:layout_constraintBottom_toTopOf="@+id/dropboxButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -55,7 +54,6 @@
         app:cornerRadius="18dp"
         app:layout_constraintBottom_toTopOf="@+id/googleDriveButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/yourPhoneButton" />
 
@@ -68,7 +66,6 @@
         app:cornerRadius="18dp"
         app:layout_constraintBottom_toTopOf="@+id/recordNowButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dropboxButton" />
 

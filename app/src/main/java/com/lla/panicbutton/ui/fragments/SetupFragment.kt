@@ -9,14 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.lla.panicbutton.R
-import com.lla.panicbutton.db.Recording
 import com.lla.panicbutton.ui.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_setup.*
-import kotlinx.android.synthetic.main.fragment_welcome.*
 import kotlinx.android.synthetic.main.fragment_welcome.nextButton
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
 
 @AndroidEntryPoint
