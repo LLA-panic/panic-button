@@ -21,13 +21,11 @@ record now
 
 4. A user can skip a recording, stop it, loop it, and change volume.
 
-5. A user can add an emergency contact number that will be called when a long time passes with the user experiencing a panic attack. this amount of time can be changed.
+5. A user can add an emergency contact number that will be called when a long time passes with the user experiencing a panic attack. This amount of time can be changed.
 
-6. A user can change between light and dark mode. for more customization, the app could offer the user a palette of colors to choose from. soft calming colors that we could look up like blue, etc. and when we change it to dark mode.
+6. A user can track when they’ve activated the panic button, and it shows the length of attacks, gives statistics on any patterns, or improvements. (storing their data and displaying it in a graphs page.) The user can share those numbers to their therapist, parents or loved ones.
 
-7. A user can track when they’ve activated the panic button, and it shows the length of attacks, gives statistics on any patterns, or improvements. (storing their data and displaying it in a graphs page.) the user can share those numbers to their therapist, parents or loved ones.
-
-8. The app would send daily notifications with comforting quotes, and the user can star and save that quote to a page so that the user can take a look at it for comfort. the user can always use it to add positive experiences they have had, so that its a daily reminder of good times or things going right in life. the user can write like a journal of their positive experiences where they can read upon for comfort!
+7. The app would send daily notifications with comforting quotes, and the user can star and save that quote to a page so that the user can take a look at it for comfort. The user can always use it to add positive experiences they have had, so that its a daily reminder of good times or things going right in life. the user can write like a journal of their positive experiences where they can read upon for comfort!
 
 
 ### Team
