@@ -1,4 +1,4 @@
-## Panic Button
+## 🌷Panic Button🌸
 An android app that helps with panic attacks, the user upload sounds/recordings of things they want to hear when having a panic attack (words of comfort from themselves or loved ones/nature sounds) and when the user has a panic attack, they press the panic button and it plays what they uploaded for them.
 
 UI design: https://laila_chammaa.artstation.com/projects/48R3Zk
@@ -7,7 +7,7 @@ Figma file, this is more updated than that first link:
 https://www.figma.com/file/LQ6pS4D7ivzWKmoRFWEMd6/panic-app?node-id=0%3A1
 
 
-### Features
+### Features✨
 
 1. A user can upload recording from different platforms:
 their phone,
@@ -28,7 +28,7 @@ record now
 7. The app would send daily notifications with comforting quotes, and the user can star and save that quote to a page so that the user can take a look at it for comfort. The user can always use it to add positive experiences they have had, so that its a daily reminder of good times or things going right in life. the user can write like a journal of their positive experiences where they can read upon for comfort!
 
 
-### Team
+### Team🦄
 
 | Name | Github Username |
 |---|---|
