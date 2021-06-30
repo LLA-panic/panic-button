@@ -30,8 +30,6 @@ record now
 8. The app would send daily notifications with comforting quotes, and the user can star and save that quote to a page so that the user can take a look at it for comfort. the user can always use it to add positive experiences they have had, so that its a daily reminder of good times or things going right in life. the user can write like a journal of their positive experiences where they can read upon for comfort!
 
 
-### Setting up the project
-
 ### Team
 
 | Name | Github Username |
