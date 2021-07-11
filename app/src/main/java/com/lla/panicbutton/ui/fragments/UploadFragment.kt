@@ -1,6 +1,7 @@
 package com.lla.panicbutton.ui.fragments
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -10,21 +11,31 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.lla.panicbutton.R
 import com.lla.panicbutton.ui.viewmodels.MainViewModel
+import com.lla.panicbutton.util.Constants.IS_FIRST_TIME
+import com.lla.panicbutton.util.Constants.ON_BOARDING
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_setup.*
-import kotlinx.android.synthetic.main.fragment_welcome.nextButton
-
+import kotlinx.android.synthetic.main.fragment_upload.*
 
 @AndroidEntryPoint
-class SetupFragment : Fragment(R.layout.fragment_setup) {
+class UploadFragment : Fragment(R.layout.fragment_upload) {
 
     private val viewModel: MainViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        nextButton.setOnClickListener {
-            findNavController().navigate(R.id.action_setupFragment_to_panicButtonFragment)
+        if (isOnBoardingFinished()) {
+            uploadNextButton.visibility = View.GONE
+            uploadDoneButton.visibility = View.VISIBLE
+        }
+
+        uploadNextButton.setOnClickListener {
+            findNavController().navigate(R.id.action_uploadFragment_to_panicButtonFragment)
+            setOnBoardingFinished()
+        }
+
+        uploadDoneButton.setOnClickListener {
+            findNavController().navigate(R.id.action_uploadFragment_to_recordingsFragment)
         }
 
         yourPhoneButton.setOnClickListener {
@@ -46,5 +57,18 @@ class SetupFragment : Fragment(R.layout.fragment_setup) {
                 // Now you can use that Uri to get the file path, or upload it, ...
             }
         }
+    }
+
+    private fun setOnBoardingFinished() {
+        val sharedPref =
+            requireActivity().getSharedPreferences(ON_BOARDING, Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putBoolean(IS_FIRST_TIME, true)
+        editor.apply()
+    }
+
+    private fun isOnBoardingFinished(): Boolean {
+        val sharedPref = requireActivity().getSharedPreferences(ON_BOARDING, Context.MODE_PRIVATE)
+        return sharedPref.getBoolean(IS_FIRST_TIME, false)
     }
 }

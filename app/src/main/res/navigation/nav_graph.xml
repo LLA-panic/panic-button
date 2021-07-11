@@ -1,45 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/startingPageFragment">
 
     <fragment
         android:id="@+id/startingPageFragment"
-        android:name="com.lla.panicbutton.ui.fragments.StartingPageFragment"
-        android:label="StartingPageFragment" >
+        android:name="com.lla.panicbutton.ui.fragments.onboardingfragments.StartingPageFragment"
+        android:label="StartingPageFragment"
+        tools:layout="@layout/fragment_starting_page">
         <action
-            android:id="@+id/action_startingPageFragment_to_welcomeFragment"
-            app:destination="@id/welcomeFragment" />
+            android:id="@+id/action_startingPageFragment_to_welcome1Fragment"
+            app:destination="@id/welcome1Fragment" />
+        <action
+            android:id="@+id/action_startingPageFragment_to_panicButtonFragment"
+            app:destination="@id/panicButtonFragment" />
     </fragment>
     <fragment
-        android:id="@+id/welcomeFragment"
-        android:name="com.lla.panicbutton.ui.fragments.WelcomeFragment"
-        android:label="WelcomeFragment" >
+        android:id="@+id/welcome1Fragment"
+        android:name="com.lla.panicbutton.ui.fragments.onboardingfragments.Welcome1Fragment"
+        android:label="Welcome1Fragment"
+        tools:layout="@layout/fragment_welcome1">
         <action
-            android:id="@+id/action_welcomeFragment_to_setupFragment"
-            app:destination="@id/setupFragment" />
+            android:id="@+id/action_welcome1Fragment_to_viewPagerFragment"
+            app:destination="@id/viewPagerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewPagerFragment"
+        android:name="com.lla.panicbutton.ui.fragments.onboardingfragments.ViewPagerFragment"
+        android:label="fragment_view_pager"
+        tools:layout="@layout/fragment_view_pager">
+        <action
+            android:id="@+id/action_viewPagerFragment_to_uploadFragment"
+            app:destination="@id/uploadFragment" />
     </fragment>
     <fragment
         android:id="@+id/recordingsFragment"
         android:name="com.lla.panicbutton.ui.fragments.RecordingsFragment"
-        android:label="RecordingsFragment" />
-    <fragment
-        android:id="@+id/setupFragment"
-        android:name="com.lla.panicbutton.ui.fragments.SetupFragment"
-        android:label="SetupFragment" >
+        android:label="RecordingsFragment"
+        tools:layout="@layout/fragment_recordings">
         <action
-            android:id="@+id/action_setupFragment_to_panicButtonFragment"
+            android:id="@+id/action_recordingsFragment_to_uploadFragment"
+            app:destination="@id/uploadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/uploadFragment"
+        android:name="com.lla.panicbutton.ui.fragments.UploadFragment"
+        android:label="UploadFragment"
+        tools:layout="@layout/fragment_upload">
+        <action
+            android:id="@+id/action_uploadFragment_to_panicButtonFragment"
             app:destination="@id/panicButtonFragment" />
+        <action
+            android:id="@+id/action_uploadFragment_to_recordingsFragment"
+            app:destination="@id/recordingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/statisticsFragment"
         android:name="com.lla.panicbutton.ui.fragments.StatisticsFragment"
-        android:label="StatisticsFragment" />
+        android:label="StatisticsFragment"
+        tools:layout="@layout/fragment_statistics" />
     <fragment
         android:id="@+id/panicButtonFragment"
         android:name="com.lla.panicbutton.ui.fragments.PanicButtonFragment"
-        android:label="PanicButtonFragment" >
+        android:label="PanicButtonFragment"
+        tools:layout="@layout/fragment_panic_button">
         <action
             android:id="@+id/action_panicButtonFragment_to_activatedPanicFragment"
             app:destination="@id/activatedPanicFragment" />
@@ -50,11 +76,13 @@
     <fragment
         android:id="@+id/quotesFragment"
         android:name="com.lla.panicbutton.ui.fragments.QuotesFragment"
-        android:label="QuotesFragment" />
+        android:label="QuotesFragment"
+        tools:layout="@layout/fragment_quotes" />
     <fragment
         android:id="@+id/activatedPanicFragment"
         android:name="com.lla.panicbutton.ui.fragments.ActivatedPanicFragment"
-        android:label="ActivatedPanicFragment" >
+        android:label="ActivatedPanicFragment"
+        tools:layout="@layout/fragment_activated_panic">
         <action
             android:id="@+id/action_activatedPanicFragment_to_panicButtonFragment"
             app:destination="@id/panicButtonFragment" />
@@ -62,7 +90,8 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.lla.panicbutton.ui.fragments.SettingsFragment"
-        android:label="SettingsFragment" >
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings">
         <action
             android:id="@+id/action_settingsFragment_to_panicButtonFragment"
             app:destination="@id/panicButtonFragment" />
