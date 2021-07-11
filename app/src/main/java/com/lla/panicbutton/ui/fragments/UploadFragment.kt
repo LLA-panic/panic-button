@@ -11,6 +11,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.lla.panicbutton.R
 import com.lla.panicbutton.ui.viewmodels.MainViewModel
+import com.lla.panicbutton.util.Constants.IS_FIRST_TIME
+import com.lla.panicbutton.util.Constants.ON_BOARDING
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_upload.*
 
@@ -22,13 +24,14 @@ class UploadFragment : Fragment(R.layout.fragment_upload) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (setsUploadFirstTimeFinished()) {
+        if (isOnBoardingFinished()) {
             uploadNextButton.visibility = View.GONE
             uploadDoneButton.visibility = View.VISIBLE
         }
 
         uploadNextButton.setOnClickListener {
             findNavController().navigate(R.id.action_uploadFragment_to_panicButtonFragment)
+            setOnBoardingFinished()
         }
 
         uploadDoneButton.setOnClickListener {
@@ -56,9 +59,16 @@ class UploadFragment : Fragment(R.layout.fragment_upload) {
         }
     }
 
-    private fun setsUploadFirstTimeFinished(): Boolean {
+    private fun setOnBoardingFinished() {
         val sharedPref =
-            requireActivity().getSharedPreferences("uploadFirstTime", Context.MODE_PRIVATE)
-        return sharedPref.getBoolean("uploadFirstTimeFinished", false)
+            requireActivity().getSharedPreferences(ON_BOARDING, Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putBoolean(IS_FIRST_TIME, true)
+        editor.apply()
+    }
+
+    private fun isOnBoardingFinished(): Boolean {
+        val sharedPref = requireActivity().getSharedPreferences(ON_BOARDING, Context.MODE_PRIVATE)
+        return sharedPref.getBoolean(IS_FIRST_TIME, false)
     }
 }

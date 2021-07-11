@@ -1,6 +1,5 @@
 package com.lla.panicbutton.ui.fragments
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -36,7 +35,6 @@ class RecordingsFragment : Fragment(R.layout.fragment_recordings) {
 
         uploadButton.setOnClickListener {
             findNavController().navigate(R.id.action_recordingsFragment_to_uploadFragment)
-            setsUploadFirstTimeFinished()
         }
     }
 
@@ -44,13 +42,5 @@ class RecordingsFragment : Fragment(R.layout.fragment_recordings) {
         recordingAdapter = RecordingAdapter(recordingList)
         adapter = recordingAdapter
         layoutManager = LinearLayoutManager(requireContext())
-    }
-
-    private fun setsUploadFirstTimeFinished() {
-        val sharedPref =
-            requireActivity().getSharedPreferences("uploadFirstTime", Context.MODE_PRIVATE)
-        val editor = sharedPref.edit()
-        editor.putBoolean("uploadFirstTimeFinished", true)
-        editor.apply()
     }
 }

@@ -1,6 +1,5 @@
 package com.lla.panicbutton.ui.fragments.onboardingfragments
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -66,15 +65,7 @@ class ViewPagerFragment : Fragment() {
                 viewPager.currentItem += 1
             } else {
                 findNavController().navigate(R.id.action_viewPagerFragment_to_uploadFragment)
-                endOnBoarding()
             }
         }
-    }
-
-    private fun endOnBoarding() {
-        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
-        val editor = sharedPref.edit()
-        editor.putBoolean("welcome4nextButton", true)
-        editor.apply()
     }
 }

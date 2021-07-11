@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.lla.panicbutton.R
+import com.lla.panicbutton.util.Constants.IS_FIRST_TIME
+import com.lla.panicbutton.util.Constants.ON_BOARDING
 import kotlinx.android.synthetic.main.fragment_starting_page.view.*
 
 class StartingPageFragment : Fragment(R.layout.fragment_starting_page) {
@@ -20,7 +22,7 @@ class StartingPageFragment : Fragment(R.layout.fragment_starting_page) {
 
         val view = inflater.inflate(R.layout.fragment_starting_page, container, false)
 
-        if (endOnBoarding()) {
+        if (isOnBoardingFinished()) {
             findNavController().navigate(R.id.action_startingPageFragment_to_panicButtonFragment)
         }
 
@@ -31,8 +33,8 @@ class StartingPageFragment : Fragment(R.layout.fragment_starting_page) {
         return view
     }
 
-    private fun endOnBoarding(): Boolean {
-        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
-        return sharedPref.getBoolean("welcome4NextButton", false)
+    private fun isOnBoardingFinished(): Boolean {
+        val sharedPref = requireActivity().getSharedPreferences(ON_BOARDING, Context.MODE_PRIVATE)
+        return sharedPref.getBoolean(IS_FIRST_TIME, false)
     }
 }
