@@ -24,7 +24,7 @@
         android:id="@+id/textView"
         android:layout_width="183dp"
         android:layout_height="92dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="148dp"
         android:background="@drawable/subtle_gradient"
         android:fontFamily="@font/stylish"
         android:letterSpacing="0.10"

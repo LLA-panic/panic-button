@@ -81,6 +81,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/googleDriveButton" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/doneButton2"
+        style="@style/actionButton"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="25dp"
+        android:backgroundTint="@color/white"
+        android:text="done"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:cornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <ImageButton
         android:id="@+id/nextButton"
         style="@style/dropShadow"
@@ -93,4 +108,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/next_button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.lla.panicbutton.ui.fragments
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -12,7 +13,6 @@ import com.lla.panicbutton.R
 import com.lla.panicbutton.ui.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_setup.*
-import kotlinx.android.synthetic.main.fragment_welcome.nextButton
 
 
 @AndroidEntryPoint
@@ -23,8 +23,17 @@ class SetupFragment : Fragment(R.layout.fragment_setup) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        if(onBoardingButton()) {
+            nextButton.visibility = View.GONE
+            doneButton2.visibility = View.VISIBLE
+        }
+
         nextButton.setOnClickListener {
             findNavController().navigate(R.id.action_setupFragment_to_panicButtonFragment)
+        }
+
+        doneButton2.setOnClickListener {
+            findNavController().navigate(R.id.action_setupFragment_to_recordingsFragment)
         }
 
         yourPhoneButton.setOnClickListener {
@@ -46,5 +55,10 @@ class SetupFragment : Fragment(R.layout.fragment_setup) {
                 // Now you can use that Uri to get the file path, or upload it, ...
             }
         }
+    }
+
+    private fun onBoardingButton() : Boolean {
+        val sharedPref = requireActivity().getSharedPreferences("onBoardingNext", Context.MODE_PRIVATE)
+        return sharedPref.getBoolean("setUpNext", false)
     }
 }

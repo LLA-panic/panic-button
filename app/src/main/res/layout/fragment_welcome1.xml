@@ -28,7 +28,7 @@
         app:srcCompat="@drawable/panic_top_blob" />
 
     <ImageButton
-        android:id="@+id/nextButton"
+        android:id="@+id/nextButton1"
         style="@style/dropShadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
         app:srcCompat="@drawable/next_button" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvHello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
@@ -51,5 +51,42 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="georgia"
+        android:gravity="center_horizontal"
+        android:text="welcome to panic button."
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/blob1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHello"
+        app:layout_constraintVertical_bias="0.092" />
+
+    <TextView
+        android:id="@+id/tvAim"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="65dp"
+        android:fontFamily="georgia"
+        android:gravity="center_horizontal"
+        android:lines="3"
+        android:text="@string/welcome1_description"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/blob1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWelcome" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
