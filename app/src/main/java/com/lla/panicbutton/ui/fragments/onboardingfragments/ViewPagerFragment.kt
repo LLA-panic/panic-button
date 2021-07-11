@@ -2,10 +2,10 @@ package com.lla.panicbutton.ui.fragments.onboardingfragments
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.lla.panicbutton.R
@@ -19,7 +19,7 @@ class ViewPagerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         val view = inflater.inflate(R.layout.fragment_view_pager, container, false)
 
         val fragmentList = arrayListOf<Fragment>(
@@ -56,24 +56,25 @@ class ViewPagerFragment : Fragment() {
 
         view.viewPager2.adapter = adapter
 
-        val springDotsIndicator = requireView().findViewById<SpringDotsIndicator>(R.id.spring_dots_indicator)
+        val springDotsIndicator =
+            requireView().findViewById<SpringDotsIndicator>(R.id.spring_dots_indicator)
         val viewPager = requireView().findViewById<ViewPager2>(R.id.viewPager2)
         springDotsIndicator?.setViewPager2(viewPager)
 
-        view.viewPagerNextButton.setOnClickListener{
-            if (viewPager.currentItem+1 < adapter.itemCount){
-                viewPager.currentItem+=1
-            }else{
-                findNavController().navigate(R.id.action_viewPagerFragment_to_setupFragment)
-                onBoardingFinished()
+        view.viewPagerNextButton.setOnClickListener {
+            if (viewPager.currentItem + 1 < adapter.itemCount) {
+                viewPager.currentItem += 1
+            } else {
+                findNavController().navigate(R.id.action_viewPagerFragment_to_uploadFragment)
+                endOnBoarding()
             }
         }
     }
 
-    private fun onBoardingFinished(){
+    private fun endOnBoarding() {
         val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
-        editor.putBoolean("nextButton4", true)
+        editor.putBoolean("welcome4nextButton", true)
         editor.apply()
     }
 }

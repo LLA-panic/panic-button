@@ -18,7 +18,7 @@ class Welcome1Fragment : Fragment(R.layout.fragment_welcome1) {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_welcome1, container, false)
 
-        view.nextButton1.setOnClickListener{
+        view.welcome1NextButton.setOnClickListener{
             findNavController().navigate(R.id.action_welcome1Fragment_to_viewPagerFragment)
         }
 

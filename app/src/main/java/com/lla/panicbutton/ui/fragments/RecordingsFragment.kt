@@ -15,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_recordings.*
 
 @AndroidEntryPoint
-class RecordingsFragment : Fragment(R.layout.fragment_recordings)  {
+class RecordingsFragment : Fragment(R.layout.fragment_recordings) {
 
     private lateinit var recordingAdapter: RecordingAdapter
 
@@ -34,9 +34,9 @@ class RecordingsFragment : Fragment(R.layout.fragment_recordings)  {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
 
-        uploadButton.setOnClickListener{
-            findNavController().navigate(R.id.action_recordingsFragment_to_setupFragment)
-            onBoardingButton()
+        uploadButton.setOnClickListener {
+            findNavController().navigate(R.id.action_recordingsFragment_to_uploadFragment)
+            setsUploadFirstTimeFinished()
         }
     }
 
@@ -46,10 +46,11 @@ class RecordingsFragment : Fragment(R.layout.fragment_recordings)  {
         layoutManager = LinearLayoutManager(requireContext())
     }
 
-    private fun onBoardingButton(){
-        val sharedPref = requireActivity().getSharedPreferences("onBoardingNext", Context.MODE_PRIVATE)
+    private fun setsUploadFirstTimeFinished() {
+        val sharedPref =
+            requireActivity().getSharedPreferences("uploadFirstTime", Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
-        editor.putBoolean("setUpNext", true)
+        editor.putBoolean("uploadFirstTimeFinished", true)
         editor.apply()
     }
 }

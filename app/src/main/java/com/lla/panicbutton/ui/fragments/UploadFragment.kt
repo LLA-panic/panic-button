@@ -12,28 +12,27 @@ import androidx.navigation.fragment.findNavController
 import com.lla.panicbutton.R
 import com.lla.panicbutton.ui.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_setup.*
-
+import kotlinx.android.synthetic.main.fragment_upload.*
 
 @AndroidEntryPoint
-class SetupFragment : Fragment(R.layout.fragment_setup) {
+class UploadFragment : Fragment(R.layout.fragment_upload) {
 
     private val viewModel: MainViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if(onBoardingButton()) {
-            nextButton.visibility = View.GONE
-            doneButton2.visibility = View.VISIBLE
+        if (setsUploadFirstTimeFinished()) {
+            uploadNextButton.visibility = View.GONE
+            uploadDoneButton.visibility = View.VISIBLE
         }
 
-        nextButton.setOnClickListener {
-            findNavController().navigate(R.id.action_setupFragment_to_panicButtonFragment)
+        uploadNextButton.setOnClickListener {
+            findNavController().navigate(R.id.action_uploadFragment_to_panicButtonFragment)
         }
 
-        doneButton2.setOnClickListener {
-            findNavController().navigate(R.id.action_setupFragment_to_recordingsFragment)
+        uploadDoneButton.setOnClickListener {
+            findNavController().navigate(R.id.action_uploadFragment_to_recordingsFragment)
         }
 
         yourPhoneButton.setOnClickListener {
@@ -57,8 +56,9 @@ class SetupFragment : Fragment(R.layout.fragment_setup) {
         }
     }
 
-    private fun onBoardingButton() : Boolean {
-        val sharedPref = requireActivity().getSharedPreferences("onBoardingNext", Context.MODE_PRIVATE)
-        return sharedPref.getBoolean("setUpNext", false)
+    private fun setsUploadFirstTimeFinished(): Boolean {
+        val sharedPref =
+            requireActivity().getSharedPreferences("uploadFirstTime", Context.MODE_PRIVATE)
+        return sharedPref.getBoolean("uploadFirstTimeFinished", false)
     }
 }

@@ -20,19 +20,19 @@ class StartingPageFragment : Fragment(R.layout.fragment_starting_page) {
 
         val view = inflater.inflate(R.layout.fragment_starting_page, container, false)
 
-        if(onBoardingFinished()) {
+        if (endOnBoarding()) {
             findNavController().navigate(R.id.action_startingPageFragment_to_panicButtonFragment)
         }
 
-        view.getStartedButton.setOnClickListener{
+        view.getStartedButton.setOnClickListener {
             findNavController().navigate(R.id.action_startingPageFragment_to_welcome1Fragment)
         }
 
         return view
     }
 
-    private fun onBoardingFinished() : Boolean {
+    private fun endOnBoarding(): Boolean {
         val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
-        return sharedPref.getBoolean("nextButton4", false)
+        return sharedPref.getBoolean("welcome4NextButton", false)
     }
 }

@@ -28,7 +28,7 @@
         app:srcCompat="@drawable/panic_top_blob" />
 
     <ImageButton
-        android:id="@+id/nextButton1"
+        android:id="@+id/welcome1NextButton"
         style="@style/dropShadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

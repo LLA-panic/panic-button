@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Panic Button</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget est lorem ipsum dolor sit amet consectetur. Odio morbi quis commodo odio aenean sed adipiscing diam. Mauris cursus mattis molestie a iaculis at. Lobortis feugiat vivamus at augue eget arcu. A arcu cursus vitae congue mauris rhoncus aenean vel elit. Dui id ornare arcu odio ut sem nulla pharetra diam. Cursus mattis molestie a iaculis. Massa ultricies mi quis hendrerit dolor magna eget. Rhoncus dolor purus non enim praesent elementum. Commodo quis imperdiet massa tincidunt nunc pulvinar. Dignissim enim sit amet venenatis urna cursus eget. Proin nibh nisl condimentum id venenatis. Sollicitudin tempor id eu nisl. Duis convallis convallis tellus id interdum velit laoreet id donec. Semper risus in hendrerit gravida rutrum quisque. A condimentum vitae sapien pellentesque habitant morbi tristique senectus. Sociis natoque penatibus et magnis dis. Tristique sollicitudin nibh sit amet commodo nulla. Morbi leo urna molestie at elementum. Purus sit amet luctus venenatis lectus. Tristique senectus et netus et malesuada fames ac. Blandit turpis cursus in hac habitasse platea dictumst. Tellus molestie nunc non blandit massa enim nec dui. Amet cursus sit amet dictum sit. Lacus sed viverra tellus in hac habitasse. Eu feugiat pretium nibh ipsum consequat nisl vel. Mauris pellentesque pulvinar pellentesque habitant morbi tristique. Et sollicitudin ac orci phasellus egestas tellus rutrum. Venenatis tellus in metus vulputate. Massa tempor nec feugiat nisl pretium fusce id. Erat velit scelerisque in dictum non. Eu lobortis elementum nibh tellus molestie. Sed egestas egestas fringilla phasellus. Magna fermentum iaculis eu non diam. Dolor morbi non arcu risus quis varius quam quisque id.</string>
-    <string name="setup_description">they could be recordings of words of comfort from yourself, loved ones or even nature sounds.</string>
+    <string name="upload_description">they could be recordings of words of comfort from yourself, loved ones or even nature sounds.</string>
     <string name="welcome1_description">we aim to help you with your panic attacks. let\'s quickly walk you through our features.</string>
     <string name="welcome2_description">upload audio clips of words or sounds you would like to hear that soothes you.</string>
     <string name="welcome2_description2">during a panic attack, press the panic button to listen to what you have uploaded.</string>
@@ -17,6 +17,4 @@
         <item>20 minutes</item>
         <item>30 minutes</item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

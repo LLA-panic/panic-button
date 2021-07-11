@@ -28,7 +28,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvTrack">
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/welcome3GraphCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="75dp"
@@ -42,7 +42,7 @@
             android:layout_marginLeft="93dp"
             android:text="📊 Minutes in Panic"
             android:textSize="18sp"
-            android:letterSpacing="0.03"/>
+            android:letterSpacing="0.03" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -53,7 +53,7 @@
             android:textSize="16sp" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/welcome3More"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -63,7 +63,7 @@
             app:srcCompat="@drawable/ic_more_horiz" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/welcome3Bars"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="93dp"
@@ -72,14 +72,12 @@
             app:srcCompat="@drawable/welcome3_bars" />
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/welcome3Legend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="252dp"
             android:layout_marginLeft="95dp"
             app:srcCompat="@drawable/welcome3_legend" />
-
-
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
