@@ -27,7 +27,7 @@
         android:layout_marginBottom="20dp"
         android:fontFamily="georgia"
         android:gravity="center_horizontal"
-        android:text="@string/setup_description"
+        android:text="@string/upload_description"
         android:textAlignment="center"
         android:textSize="13sp"
         app:layout_constraintBottom_toTopOf="@+id/yourPhoneButton"
