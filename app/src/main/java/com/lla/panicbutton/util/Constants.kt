@@ -11,4 +11,6 @@ object Constants {
     const val SHARED_PREFERENCES_NAME = "UserInfo"
     const val EMERGENCY_PHONE = "EmergencyPhone"
     const val SEVERE_ATTACK_TIME = "SevereAttackTime"
+    const val IS_FIRST_TIME = "isFirstTime"
+    const val ON_BOARDING = "onBoarding"
 }

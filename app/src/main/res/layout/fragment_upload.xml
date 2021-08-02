@@ -27,7 +27,7 @@
         android:layout_marginBottom="20dp"
         android:fontFamily="georgia"
         android:gravity="center_horizontal"
-        android:text="@string/setup_description"
+        android:text="@string/upload_description"
         android:textAlignment="center"
         android:textSize="13sp"
         app:layout_constraintBottom_toTopOf="@+id/yourPhoneButton"
@@ -81,8 +81,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/googleDriveButton" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/uploadDoneButton"
+        style="@style/actionButton"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="25dp"
+        android:backgroundTint="@color/white"
+        android:text="done"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:cornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <ImageButton
-        android:id="@+id/nextButton"
+        android:id="@+id/uploadNextButton"
         style="@style/dropShadow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -93,4 +108,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/next_button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

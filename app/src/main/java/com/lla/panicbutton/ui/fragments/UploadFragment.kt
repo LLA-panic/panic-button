@@ -20,17 +20,17 @@ import com.lla.panicbutton.R
 import com.lla.panicbutton.ui.viewmodels.MainViewModel
 import com.lla.panicbutton.util.Constants
 import com.lla.panicbutton.util.Constants.DIRECTORY_RECORDINGS
+import com.lla.panicbutton.util.Constants.IS_FIRST_TIME
+import com.lla.panicbutton.util.Constants.ON_BOARDING
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_setup.*
-import kotlinx.android.synthetic.main.fragment_welcome.nextButton
+import kotlinx.android.synthetic.main.fragment_upload.*
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.io.File
 import javax.inject.Inject
 
-
 @AndroidEntryPoint
-class SetupFragment : Fragment(R.layout.fragment_setup) {
+class UploadFragment : Fragment(R.layout.fragment_upload) {
 
     private val viewModel: MainViewModel by viewModels()
     lateinit var recordingsDir: File
@@ -43,8 +43,18 @@ class SetupFragment : Fragment(R.layout.fragment_setup) {
 
         recordingsDir = createRecordingsDirInStorage(this.requireContext(), DIRECTORY_RECORDINGS)
 
-        nextButton.setOnClickListener {
-            findNavController().navigate(R.id.action_setupFragment_to_panicButtonFragment)
+        if (isOnBoardingFinished()) {
+            uploadNextButton.visibility = View.GONE
+            uploadDoneButton.visibility = View.VISIBLE
+        }
+
+        uploadNextButton.setOnClickListener {
+            findNavController().navigate(R.id.action_uploadFragment_to_panicButtonFragment)
+            setOnBoardingFinished()
+        }
+
+        uploadDoneButton.setOnClickListener {
+            findNavController().navigate(R.id.action_uploadFragment_to_recordingsFragment)
         }
 
         yourPhoneButton.setOnClickListener {
@@ -72,13 +82,13 @@ class SetupFragment : Fragment(R.layout.fragment_setup) {
                     var audioLength = audioFileUri.path?.let { getAudioLengthMillis(it) }
                     //var uploadedRecording = Recording(fileName, length, Calendar.getInstance().timeInMillis)
                     Snackbar.make(
-                        this@SetupFragment.requireView(),
+                        this@UploadFragment.requireView(),
                         "Audio $fileName uploaded.",
                         Snackbar.LENGTH_LONG
                     ).show()
                 } else {
                     Snackbar.make(
-                        this@SetupFragment.requireView(),
+                        this@UploadFragment.requireView(),
                         "Audio file was too big to upload.",
                         Snackbar.LENGTH_LONG
                     ).show()
@@ -132,4 +142,16 @@ class SetupFragment : Fragment(R.layout.fragment_setup) {
         return recordingsDir
     }
 
+    private fun setOnBoardingFinished() {
+        val sharedPref =
+            requireActivity().getSharedPreferences(ON_BOARDING, Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putBoolean(IS_FIRST_TIME, true)
+        editor.apply()
+    }
+
+    private fun isOnBoardingFinished(): Boolean {
+        val sharedPref = requireActivity().getSharedPreferences(ON_BOARDING, Context.MODE_PRIVATE)
+        return sharedPref.getBoolean(IS_FIRST_TIME, false)
+    }
 }

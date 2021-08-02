@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvTrack"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="220dp"
+        android:fontFamily="georgia"
+        android:gravity="center_horizontal"
+        android:lines="3"
+        android:text="@string/welcome3_description"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTrack">
+
+        <ImageView
+            android:id="@+id/welcome3GraphCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:layout_marginLeft="75dp"
+            app:srcCompat="@drawable/graph_bg_card" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="93dp"
+            android:text="📊 Minutes in Panic"
+            android:textSize="18sp"
+            android:letterSpacing="0.03" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="98dp"
+            android:text="@string/graph_message1"
+            android:textSize="16sp" />
+
+        <ImageButton
+            android:id="@+id/welcome3More"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="88dp"
+            android:layout_marginTop="20dp"
+            android:background="#0000"
+            app:srcCompat="@drawable/ic_more_horiz" />
+
+        <ImageView
+            android:id="@+id/welcome3Bars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="93dp"
+            android:layout_marginLeft="93dp"
+            android:layout_marginTop="120dp"
+            app:srcCompat="@drawable/welcome3_bars" />
+
+        <ImageView
+            android:id="@+id/welcome3Legend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="252dp"
+            android:layout_marginLeft="95dp"
+            app:srcCompat="@drawable/welcome3_legend" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

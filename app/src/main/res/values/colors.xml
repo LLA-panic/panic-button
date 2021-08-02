@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#FFD6D6</color>
     <color name="colorAccent">#FFAFAF</color>
     <color name="white">#FFFFFF</color>
+    <color name="activatedDot">#EAAEAE</color>
+    <color name="darkerbar">#FFB6B6</color>
+    <color name="lighterBar">#FFCBCB</color>
 </resources>
