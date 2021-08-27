@@ -1,9 +1,12 @@
 package com.lla.panicbutton.di
 
 import android.content.Context
+import android.content.Context.MODE_PRIVATE
+import android.content.SharedPreferences
 import androidx.room.Room
 import com.lla.panicbutton.db.PanicDatabase
 import com.lla.panicbutton.util.Constants.PANIC_DATABASE_NAME
+import com.lla.panicbutton.util.Constants.SHARED_PREFERENCES_NAME
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,4 +35,9 @@ object AppModule {
     @Singleton
     @Provides
     fun provideEpisodeDao(db: PanicDatabase) = db.getEpisodeDao()
+
+    @Singleton
+    @Provides
+    fun provideSharedPreferences(@ApplicationContext app: Context): SharedPreferences =
+        app.getSharedPreferences(SHARED_PREFERENCES_NAME, MODE_PRIVATE)
 }
