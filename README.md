@@ -29,6 +29,6 @@ record now
 
 | Name | Github Username |
 |---|---|
-| Alexander De Laurentiis | [Zandrenel](https://github.com/Zandrenel) |
 | Lisa Duong | [lisa7012](https://github.com/lisa7012) |
 | Laila Chamma'a | [laila-chammaa](https://github.com/laila-chammaa) |
+| Alexander De Laurentiis | [Zandrenel](https://github.com/Zandrenel) |
