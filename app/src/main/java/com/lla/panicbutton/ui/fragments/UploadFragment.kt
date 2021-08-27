@@ -128,8 +128,10 @@ class UploadFragment : Fragment(R.layout.fragment_upload) {
     private fun getAudioLengthMillis(context: Context, uri: Uri): Long {
         val mediaMetadataRetriever = MediaMetadataRetriever()
         mediaMetadataRetriever.setDataSource(context, uri)
-        return mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)!!
+        val length = mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)!!
             .toLong()
+        mediaMetadataRetriever.release()
+        return length
     }
 
     private fun createRecordingsDirInStorage(context: Context): File {

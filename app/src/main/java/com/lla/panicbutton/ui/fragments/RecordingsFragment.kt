@@ -28,6 +28,8 @@ class RecordingsFragment : Fragment(R.layout.fragment_recordings) {
         viewModel.recordings().observe(viewLifecycleOwner, Observer
         {
             recordingList = it
+            //TODO: doesn't work without resetting the recycle view.. fix that
+            setupRecyclerView()
             recordingAdapter.notifyDataSetChanged()
         })
         uploadButton.setOnClickListener {
