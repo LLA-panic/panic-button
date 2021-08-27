@@ -1,5 +1,6 @@
 package com.lla.panicbutton.ui.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -23,23 +24,12 @@ class RecordingsFragment : Fragment(R.layout.fragment_recordings) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        setupRecyclerView()
         viewModel.recordings().observe(viewLifecycleOwner, Observer
         {
             recordingList = it
+            recordingAdapter.notifyDataSetChanged()
         })
-        //TODO: remove this after setting up the service!
-        if (recordingList.isEmpty()) {
-            recordingList = mutableListOf(
-                Recording("Message from mom", 240000),
-                Recording("Bird sounds", 198000),
-                Recording("Ocean during storm", 3734000),
-                Recording("Love from Sosoon", 240000),
-                Recording("Thunder", 240000)
-            )
-        }
-        setupRecyclerView()
-
         uploadButton.setOnClickListener {
             findNavController().navigate(R.id.action_recordingsFragment_to_uploadFragment)
         }

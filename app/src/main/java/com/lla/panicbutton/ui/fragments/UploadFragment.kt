@@ -17,6 +17,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.lla.panicbutton.R
+import com.lla.panicbutton.db.Recording
 import com.lla.panicbutton.ui.viewmodels.MainViewModel
 import com.lla.panicbutton.util.Constants
 import com.lla.panicbutton.util.Constants.DIRECTORY_RECORDINGS
@@ -26,7 +27,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_upload.*
 import kotlinx.coroutines.launch
 import timber.log.Timber
-import java.io.File
+import java.io.*
+import java.util.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -41,7 +43,7 @@ class UploadFragment : Fragment(R.layout.fragment_upload) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recordingsDir = createRecordingsDirInStorage(this.requireContext(), DIRECTORY_RECORDINGS)
+        recordingsDir = createRecordingsDirInStorage(this.requireContext())
 
         if (isOnBoardingFinished()) {
             uploadNextButton.visibility = View.GONE
@@ -77,10 +79,13 @@ class UploadFragment : Fragment(R.layout.fragment_upload) {
                 //TODO: remove all !!
                 val audioFileUri: Uri = data.data!!
                 val fileName = getFileNameAndSize(audioFileUri).first
-                var size = getFileNameAndSize(audioFileUri).second
-                if (validSize(size)) {
-                    var audioLength = audioFileUri.path?.let { getAudioLengthMillis(it) }
-                    //var uploadedRecording = Recording(fileName, length, Calendar.getInstance().timeInMillis)
+                val size = getFileNameAndSize(audioFileUri).second
+                if (validSize(size) && audioFileUri.path != null) {
+                    val audioLength = getAudioLengthMillis(this.requireContext(), audioFileUri)
+                    val uploadedRecording = Recording(fileName, audioLength, Calendar.getInstance().timeInMillis)
+                    viewModel.insertRecording(uploadedRecording)
+                    //saving to the app-specific dir
+                    saveFile(audioFileUri, recordingsDir)
                     Snackbar.make(
                         this@UploadFragment.requireView(),
                         "Audio $fileName uploaded.",
@@ -120,21 +125,19 @@ class UploadFragment : Fragment(R.layout.fragment_upload) {
         return true
     }
 
-    private fun getAudioLengthMillis(path: String): Long {
-        //TODO: this doesn't work to get the audio's length
+    private fun getAudioLengthMillis(context: Context, uri: Uri): Long {
         val mediaMetadataRetriever = MediaMetadataRetriever()
-        mediaMetadataRetriever.setDataSource(path)
+        mediaMetadataRetriever.setDataSource(context, uri)
         return mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)!!
             .toLong()
     }
 
-    //TODO: doesn't work
-    private fun createRecordingsDirInStorage(context: Context, folderName: String): File {
+    private fun createRecordingsDirInStorage(context: Context): File {
         // we are creating the dir where we'll be storing the user's recordings and returning it to write to it
         val recordingsDir = File(
             context.getExternalFilesDir(
                 Environment.DIRECTORY_MUSIC
-            ), folderName
+            ), DIRECTORY_RECORDINGS
         )
         if (!recordingsDir.mkdirs()) {
             Timber.d("${Constants.WARN_LOG_TAG} Directory not created")
@@ -153,5 +156,31 @@ class UploadFragment : Fragment(R.layout.fragment_upload) {
     private fun isOnBoardingFinished(): Boolean {
         val sharedPref = requireActivity().getSharedPreferences(ON_BOARDING, Context.MODE_PRIVATE)
         return sharedPref.getBoolean(IS_FIRST_TIME, false)
+    }
+
+    private fun saveFile(sourceUri: Uri, directory: File) {
+        val sourceFilename: String = sourceUri.path!!
+        val destinationFilename =
+            directory.path + File.separatorChar + getFileNameAndSize(sourceUri).first
+        var bis: BufferedInputStream? = null
+        var bos: BufferedOutputStream? = null
+        try {
+            bis = BufferedInputStream(FileInputStream(sourceFilename))
+            bos = BufferedOutputStream(FileOutputStream(destinationFilename, false))
+            val buf = ByteArray(1024)
+            bis.read(buf)
+            do {
+                bos.write(buf)
+            } while (bis.read(buf) != -1)
+        } catch (e: IOException) {
+            e.printStackTrace()
+        } finally {
+            try {
+                bis?.close()
+                bos?.close()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
     }
 }
